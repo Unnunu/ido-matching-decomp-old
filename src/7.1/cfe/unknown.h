@@ -36,6 +36,16 @@ typedef struct FmtArr {
     int unk_04;
 } FmtArr;
 
+typedef struct Scope {
+    struct TreeNode* unk_00;
+    int unk_04;
+    struct Scope* unk_08;
+    int unk_0C;
+    int unk_10;
+    int unk_14;
+    struct TreeNode* unk_18;
+} Scope;
+
 extern short act_to_imp[];
 extern short imp_to_act[];
 extern int mode;
@@ -86,7 +96,8 @@ extern TreeNode* longdouble_type;
 extern TreeNode* one_constant;
 extern TreeNode* zero_constant;
 extern TreeNode* ellipsis;
-extern int last_stdtree_id;
+extern Symbol* anonymous;
+extern unsigned int last_stdtree_id;
 extern unsigned short options[];
 extern unsigned long long __ULONGLONG_MAX;
 extern long long __LONGLONG_MAX;
@@ -106,6 +117,9 @@ extern int bit_size[];
 extern int minimize_indirection_entries;
 extern char* sc_names[];
 extern MemCtx* tree_handle;
+extern Scope* function_scope;
+extern Scope* file_scope;
+extern Scope* current_scope;
 
 int real_file_line(int, char**, int*, int);
 int __assert(char*, char*, int);
@@ -124,5 +138,6 @@ void hash_table_statistics(void);
 void Set_Small_Data_Upper_Limit(int);
 void set_def_member_pack(int);
 void cpp_symentry_setMaxMacroRecursionDepth(int);
+void mips_st(TreeNode*);
 
 #endif

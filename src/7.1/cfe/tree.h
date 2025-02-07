@@ -93,6 +93,8 @@
 #define GET_PRAGMA(t) (*((TreeNode_Pragma*)t))
 #define ACCESS_SPEC(t) (*((TreeNode_Access_spec*)t))
 
+#define EMPTY NULL
+
 #define IS_STD_TREE(t) (t == char_type || t == double_type || t == int_type || \
         t == int_type || t == float_type || t == long_type || t == longlong_type || \
         t == longdouble_type || t == short_type || t == signed_type || \
@@ -649,5 +651,6 @@ TreeNode* make_iconstant(int, TreeNode*, long long);
 TreeNode* make_pointer(TreeNode* arg0);
 float str_to_float(char* arg0, int arg1, int arg2);
 double str_to_double(char* arg0, int arg1, int arg2);
+TreeNode* duplicate_node(TreeNode* t);
 
 #endif

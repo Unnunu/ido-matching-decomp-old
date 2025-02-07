@@ -10,7 +10,7 @@ typedef struct ParseSymbol {
 struct TreeNode;
 
 typedef struct Symbol {
-    struct TreeNode* constVal;
+    struct TreeNode* constVal; // TODO come up with better name
     ParseSymbol* unk_04;
     int unk_08;
     int unk_0C;
@@ -18,5 +18,7 @@ typedef struct Symbol {
     int namelen;
     char name[1];
 } Symbol;
+
+void enter_id(struct TreeNode* id);
 
 #endif
