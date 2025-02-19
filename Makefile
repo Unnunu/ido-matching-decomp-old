@@ -180,6 +180,10 @@ $(BUILD)/%.o: %.c
 $(BUILD)/%.o: %.p
 	$(CC) -c $(CFLAGS) $(MIPS_VERSION) $(OPTFLAGS) -o $@ $<
 
+%.c: %.y
+	$(YACC) $(YFLAGS) $<
+	mv y.tab.c $@
+
 ## Disassembly
 
 # cc is special and is stored in a different folder
